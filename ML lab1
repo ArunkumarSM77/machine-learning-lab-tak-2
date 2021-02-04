@@ -1,0 +1,41 @@
+In [1]:
+import scipy
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set()
+x=np.linspace(0,10,10)
+y=scipy.stats.norm(5,1)
+plt.title('Gaussian distribution')
+plt.xlabel('weight')
+plt.ylabel('probability')
+plt.plot(x,y.pdf(x))
+plt.plot(x,y.pdf(x),'ro')
+plt.show()
+
+In [1]:
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set()
+s=np.linspace(0,10,10)
+N=10
+def f(mu):
+    i=0
+    sum=0
+    while(i<N):
+        sum+=pow(s[i]-mu,2)
+        i=i+1
+    y=-0.5*sum-(N/2)*(math.log(2*3.14))
+    return y
+f2 = np.vectorize(f)
+mu=np.linspace(0,10,10)
+plt.title('Likelihood function')
+plt.xlabel('mean')
+plt.ylabel('likelihood')
+plt.plot(mu,f2(mu))
+plt.plot(mu,f2(mu),'ro')
+plt.show()
+
+In [ ]:
